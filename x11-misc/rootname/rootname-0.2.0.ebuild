@@ -13,7 +13,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 LICENSE="AGPL-3"
 SLOT="0"
 
-DEPEND="x11-libs/libX11"
+DEPEND="x11-libs/libxcb"
 
 src_install() {
 	dobin rootname
