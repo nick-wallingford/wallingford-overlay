@@ -2,8 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-inherit games
+EAPI=6
 
 DESCRIPTION="D&D character generator"
 HOMEPAGE="http://pcgen.sourceforge.net/"
@@ -20,22 +19,14 @@ DEPEND="app-arch/unzip"
 S=${WORKDIR}/${PN}
 
 src_prepare() {
-	rm -vf pcgen.exe
-	sed -i 's,\r,,' pcgen.sh
-	sed "/dirname/ c\cd \"${GAMES_DATADIR}\/${PN}\"" pcgen.sh > "${T}"/${PN} || die
+	sed -i 's,\r,,' pcgen.sh || die
+	sed 's,cd `dirname $0`,cd /usr/share/pcgen,' pcgen.sh > "${PN}" || die
+	eapply_user
 }
 
 src_install() {
-	dogamesbin "${T}"/${PN}
-	insinto "${GAMES_DATADIR}"/${PN}
-	doins -r *
-	prepgamesdirs
-}
-
-pkg_preinst() {
-	games_pkg_preinst
-}
-
-pkg_postinst() {
-	games_pkg_postinst
+	dobin "${PN}"
+	insinto /usr/share/"${PN}"
+	doins -r characters data docs libs outputsheets pcgen-batch-convert.jar pcgen.jar plugins preview system
+	einstall_docs
 }
