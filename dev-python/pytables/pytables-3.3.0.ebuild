@@ -38,11 +38,11 @@ python_test() {
 }
 
 python_compile() {
-	make ANNOUNCE.txt
+	emake ANNOUNCE.txt
 	distutils-r1_python_compile
 
 	if use doc; then
-		python2 ./setup.py build_sphinx
+		python2.7 ./setup.py build_sphinx
 	fi
 }
 
@@ -51,11 +51,9 @@ python_install_all() {
 		HTML_DOCS=( build/sphinx/html/. )
 		DOCS+=( doc/scripts )
 	fi
-	distutils-r1_python_install_all
 
 	if use examples;then
-		insinto /usr/share/doc/${PF}
-		doins -r examples
-		doins -r contrib
+		DOCS+=( examples contrib )
 	fi
+	distutils-r1_python_install_all
 }
