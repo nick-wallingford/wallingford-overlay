@@ -5,4 +5,7 @@
     <email>nick@wallingford.cc</email>
     <name>Nick Wallingford</name>
   </maintainer>
+  <use>
+    <flag name="battery">Show power and battery status.</flag>
+  </use>
 </pkgmetadata>
