@@ -20,7 +20,7 @@ DEPEND="x11-libs/libxcb"
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use battery)
+		-DBATTERY="$(usex battery)"
 	)
 
 	cmake-utils_src_configure
