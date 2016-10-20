@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit git-r3
+inherit git-r3 cmake-utils
 
 DESCRIPTION="Sets the root window name with useful information."
 HOMEPAGE="https://github.com/nick-wallingford/rootname"
