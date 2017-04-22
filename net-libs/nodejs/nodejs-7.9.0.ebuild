@@ -93,7 +93,7 @@ src_configure() {
 	use snapshot && myconf+=( --with-snapshot )
 	use ssl || myconf+=( --without-ssl )
 	use debug && myconf+=( --debug )
-	use system-openssl && myconf+=( --shared-ssl )
+	use system-openssl && myconf+=( --shared-openssl )
 
 	case ${ABI} in
 		amd64) myarch="x64";;
