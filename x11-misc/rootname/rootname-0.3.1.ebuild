@@ -9,7 +9,7 @@ DESCRIPTION="Sets the root window name with useful information."
 HOMEPAGE="https://github.com/nick-wallingford/${PN}"
 SRC_URI="https://github.com/nick-wallingford/${PN}/archive/${PVR}.tar.gz -> ${PF}.tar.gz"
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="battery"
 
 LICENSE="AGPL-3"
